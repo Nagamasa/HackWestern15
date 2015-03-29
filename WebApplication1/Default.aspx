@@ -38,62 +38,60 @@
             </p>
         </div>
     </div>-->
-    <style>
-
-.graticule {
-  fill: none;
-  stroke: #777;
-  stroke-width: .5px;
-  stroke-opacity: .5;
-}
-
-.land {
-  fill: #222;
-}
-
-.boundary {
-  fill: none;
-  stroke: #fff;
-  stroke-width: .5px;
-}
-
-</style>
-    <script type="text/javascript">
-        var width = 960,
-    height = 480;
-
-        var projection = d3.geo.equirectangular()
-            .scale(153)
-            .translate([width / 2, height / 2])
-            .precision(.1);
-
-        var path = d3.geo.path()
-            .projection(projection);
-
-        var graticule = d3.geo.graticule();
-
-        var svg = d3.select("body").append("svg")
-            .attr("width", width)
-            .attr("height", height);
-
-        svg.append("path")
-            .datum(graticule)
-            .attr("class", "graticule")
-            .attr("d", path);
-
-        d3.json("Content/world-50m.json", function (error, world) {
-            svg.insert("path", ".graticule")
-                .datum(topojson.feature(world, world.objects.land))
-                .attr("class", "land")
-                .attr("d", path);
-
-            svg.insert("path", ".graticule")
-                .datum(topojson.mesh(world, world.objects.countries, function (a, b) { return a !== b; }))
-                .attr("class", "boundary")
-                .attr("d", path);
-        });
-
-        d3.select(self.frameElement).style("height", height + "px");
+    <link href="/d3-geomap/css/d3.geomap.css" rel="stylesheet">
+    <script src="/d3-geomap/vendor/d3.geomap.dependencies.min.js"></script>
+    <script src="/d3-geomap/js/d3.geomap.min.js"></script>
+    <script src="/d3-geomap/datamaps.world.min.js"></script>
+<div id="container" style="position: relative; width: 1100px; height: 600px;"></div>
+<script type="text/javascript" runat="server">
+    //<![CDATA[
+//var dataset; 
+//   ]]>
+</script>
+<script type="text/javascript">
+<!--
+    var map = new Datamap({
+        element: document.getElementById("container"),
+        done: function (datamap) {
+            datamap.svg.selectAll(".datamaps-subunit").on("click", function (geography) {
+                window.location = "/fundCountry.aspx?country="+geography.id;
+            });
+        },
+        dataUrl: 'Content/sp.pop.totl.csv',
+        dataType: 'csv',
+        data: {},
+        fills: {
+            '1': '#dddddd',
+            '2': '#E2725B',
+            '3': '#E62020',
+            '4': '#65000B',
+            defaultFill: '#dddddd'
+        }
+    });
+// -->
 
 </script>
+<%--    
+<div id="map" style="margin-left:auto; margin-right:auto;text-align:center;"></div>
+    <script>
+        var format = function (d) {
+            d = d / 1000000;
+            return d3.format(',.02f')(d) + 'M';
+        }
+
+        var map = d3.geomap.choropleth()
+            .geofile('/d3-geomap/topojson/world/countries.json')
+            .colors(colorbrewer.YlGnBu[9])
+            .column('YR2010')
+            .format(format)
+            .legend(true)
+            .unitId('Country Code');
+
+        d3.csv('Content/sp.pop.totl.csv', function (error, data) {
+            d3.select('#map')
+                .datum(data)
+                .call(map.draw, map);
+        });
+    </script>--%>
+
 </asp:Content>
