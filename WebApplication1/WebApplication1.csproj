@@ -175,6 +175,12 @@
     <Content Include="d3-geomap\js\d3.geomap.min.js" />
     <Content Include="d3-geomap\vendor\d3.geomap.dependencies.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fundCountry.aspx" />
+    <Content Include="img\1F.jpg" />
+    <Content Include="img\1M.jpg" />
+    <Content Include="img\2F.jpg" />
+    <Content Include="img\2M.png" />
+    <Content Include="img\dr.jpg" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -635,6 +641,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="fundCountry.aspx.cs">
+      <DependentUpon>fundCountry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fundCountry.aspx.designer.cs">
+      <DependentUpon>fundCountry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -665,6 +678,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

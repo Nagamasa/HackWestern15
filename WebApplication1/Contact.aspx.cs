@@ -20,6 +20,9 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+            
+=======
             List<countryInfo> countries = new List<countryInfo>();
 
             string CONT = "http://api.worldbank.org/countries?format=xml&per_page=300";
@@ -161,6 +164,8 @@ namespace WebApplication1
                 result = reader.ReadToEnd();
             }
             return result;
+>>>>>>> master
         }
+        
     }
 }
