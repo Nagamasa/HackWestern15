@@ -171,6 +171,7 @@
     <Content Include="Content\WebForm1.aspx" />
     <Content Include="Content\WebForm2.aspx" />
     <Content Include="d3-geomap\css\d3.geomap.css" />
+    <Content Include="d3-geomap\datamaps.world.min.js" />
     <Content Include="d3-geomap\js\d3.geomap.js" />
     <Content Include="d3-geomap\js\d3.geomap.min.js" />
     <Content Include="d3-geomap\vendor\d3.geomap.dependencies.min.js" />
